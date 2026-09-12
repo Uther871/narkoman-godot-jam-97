@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d32docolsbwps"]
+
+[ext_resource type="Texture2D" uid="uid://cc1a0weiwxfa5" path="res://Vасети/holodos.png" id="1_3x5qs"]
+[ext_resource type="Script" uid="uid://v65v27ymvjg6" path="res://fridge_1.gd" id="1_nfxe2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2ql"]
+size = Vector2(98, 209)
+
+[node name="Fridge" type="Area2D" unique_id=665776518]
+script = ExtResource("1_nfxe2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=832306556]
+texture_filter = 1
+position = Vector2(-736, -342)
+scale = Vector2(2.6406255, 2.546875)
+texture = ExtResource("1_3x5qs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1734725653]
+position = Vector2(-732, -320)
+shape = SubResource("RectangleShape2D_sa2ql")

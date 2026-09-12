@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c2anfg06evdx7"]
+
+[ext_resource type="Texture2D" uid="uid://dh4mlj1r55v3u" path="res://Vасети/huynia23.png" id="1_kc0pu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vsy63"]
+size = Vector2(100, 359)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtsop"]
+size = Vector2(309, 80)
+
+[node name="huynia23" type="Area2D" unique_id=577995440]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=851554485]
+texture_filter = 1
+position = Vector2(-306.75, -385)
+scale = Vector2(3.0185184, 3.3333333)
+texture = ExtResource("1_kc0pu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1957603920]
+texture_filter = 1
+position = Vector2(-152.63637, -207.07436)
+rotation = 1.5707964
+scale = Vector2(2.071472, 4.018938)
+texture = ExtResource("1_kc0pu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=617821246]
+position = Vector2(-151, -247.5)
+shape = SubResource("RectangleShape2D_vsy63")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1766327061]
+position = Vector2(-354.5, -386)
+shape = SubResource("RectangleShape2D_qtsop")

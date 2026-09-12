@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dxe1yry6lsfp1"]
+
+[ext_resource type="Script" uid="uid://cq43eod7oiruj" path="res://character_body_2d.gd" id="1_0e48y"]
+[ext_resource type="Texture2D" uid="uid://xe6wiavg5t0m" path="res://Vасети/sprite_shit_gwj.png" id="1_wtcfe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0e48y"]
+atlas = ExtResource("1_wtcfe")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epypp"]
+atlas = ExtResource("1_wtcfe")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hol4"]
+atlas = ExtResource("1_wtcfe")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6r6c"]
+atlas = ExtResource("1_wtcfe")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sa2ql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0e48y")
+}],
+"loop": 1,
+"name": &"Spokiy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epypp")
+}],
+"loop": 1,
+"name": &"Sydzhu",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hol4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6r6c")
+}],
+"loop": 1,
+"name": &"hotbya",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ov4ip"]
+size = Vector2(14.110001, 6.5600004)
+
+[node name="Node2D" type="Node2D" unique_id=1753449657]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=927361161]
+script = ExtResource("1_0e48y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1877228618]
+texture_filter = 1
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_sa2ql")
+animation = &"hotbya"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1032620535]
+position = Vector2(-0.44999617, 0.70000064)
+scale = Vector2(9.999999, 9.999999)
+shape = SubResource("RectangleShape2D_ov4ip")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=928105157]
