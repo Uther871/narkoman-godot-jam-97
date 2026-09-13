@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dh5da2vwos2ug"]
+
+[ext_resource type="Script" uid="uid://cfocmhd03sta8" path="res://injection_spot.gd" id="1_5nger"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtsop"]
+
+[node name="InjectionSpot" type="Area2D" unique_id=545040796]
+script = ExtResource("1_5nger")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=820400016]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=50986278]
+shape = SubResource("RectangleShape2D_qtsop")
+
+[node name="Label" type="Label" parent="." unique_id=2080033582]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0

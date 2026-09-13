@@ -1,5 +1,72 @@
 [gd_scene format=3 uid="uid://devpfn7g7o7kx"]
 
+[ext_resource type="Script" uid="uid://dlkqdeplg6lt2" path="res://syringe_minigame.gd" id="1_44xpa"]
+[ext_resource type="Texture2D" uid="uid://ckpbugfjaooup" path="res://Vасети/bcbef050642f88b0.png" id="2_auo82"]
+[ext_resource type="Texture2D" uid="uid://dva8e0yqfli7c" path="res://Vасети/kultyapka.png" id="3_6bdim"]
+[ext_resource type="Texture2D" uid="uid://5oymqx7sah8b" path="res://LOSER.png" id="4_6bdim"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdela"]
+atlas = ExtResource("2_auo82")
+region = Rect2(0, 0, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mwlj"]
+atlas = ExtResource("2_auo82")
+region = Rect2(0, 0, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sjkd"]
+atlas = ExtResource("2_auo82")
+region = Rect2(31, 0, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryjax"]
+atlas = ExtResource("2_auo82")
+region = Rect2(62, 0, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4lqn"]
+atlas = ExtResource("2_auo82")
+region = Rect2(93, 0, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7npee"]
+atlas = ExtResource("2_auo82")
+region = Rect2(124, 0, 31, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fvbv"]
+atlas = ExtResource("2_auo82")
+region = Rect2(155, 0, 31, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sa2ql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdela")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mwlj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sjkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryjax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4lqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7npee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fvbv")
+}],
+"loop": 1,
+"name": &"inject",
+"speed": 15.0
+}]
+
 [node name="Node2D" type="Node2D" unique_id=1988240612]
 
 [node name="SyringeMinigame" type="Control" parent="." unique_id=937659628]
@@ -7,6 +74,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_44xpa")
 
 [node name="Background" type="ColorRect" parent="SyringeMinigame" unique_id=10293700]
 layout_mode = 0
@@ -20,7 +88,11 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Syringe" type="Sprite2D" parent="SyringeMinigame" unique_id=2012736722]
+[node name="Syringe" type="AnimatedSprite2D" parent="SyringeMinigame" unique_id=1683826811]
+z_index = 10
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_sa2ql")
+animation = &"inject"
 
 [node name="AttemptsLabel" type="Label" parent="SyringeMinigame" unique_id=1811001507]
 layout_mode = 0
@@ -31,3 +103,28 @@ offset_bottom = 23.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="hand" type="Sprite2D" parent="SyringeMinigame" unique_id=999348786]
+texture_filter = 1
+texture = ExtResource("3_6bdim")
+
+[node name="GameOverImage" type="TextureRect" parent="SyringeMinigame" unique_id=1518145657]
+visible = false
+z_index = 11
+layout_mode = 0
+offset_left = -157.0
+offset_top = -87.0
+offset_right = 163.0
+offset_bottom = 93.0
+texture = ExtResource("4_6bdim")
+
+[node name="HoldProgressBar" type="ProgressBar" parent="SyringeMinigame" unique_id=1449174910]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+min_value = 1.5
+value = 1.5
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=694401367]
+position = Vector2(-15, -1)
+zoom = Vector2(4, 4)

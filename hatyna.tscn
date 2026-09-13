@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ypenqieic142" path="res://Vасети/f2299f81d9a3dbdb.png" id="7_eno6v"]
 [ext_resource type="Shader" uid="uid://m07a6vkleeo5" path="res://hatyna.gdshader" id="8_eno6v"]
 [ext_resource type="Script" uid="uid://qmi6ygrx5u76" path="res://color_rect.gd" id="9_h2j0k"]
+[ext_resource type="PackedScene" uid="uid://dh5da2vwos2ug" path="res://injection_spot.tscn" id="10_tyuvj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qd1lp"]
 size = Vector2(19, 894)
@@ -155,4 +156,10 @@ grow_vertical = 2
 color = Color(1, 0, 0, 0.5019608)
 script = ExtResource("9_h2j0k")
 
+[node name="InjectionSpot" parent="." unique_id=545040796 instance=ExtResource("10_tyuvj")]
+
+[node name="CollisionShape2D" parent="InjectionSpot" index="1" unique_id=50986278]
+position = Vector2(-598, 248)
+
 [editable path="Node2D"]
+[editable path="InjectionSpot"]
