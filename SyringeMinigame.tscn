@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://devpfn7g7o7kx"]
+
+[node name="Node2D" type="Node2D" unique_id=1988240612]
+
+[node name="SyringeMinigame" type="Control" parent="." unique_id=937659628]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="ColorRect" parent="SyringeMinigame" unique_id=10293700]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Track" type="Line2D" parent="SyringeMinigame" unique_id=962072659]
+
+[node name="TargetZone" type="ColorRect" parent="SyringeMinigame" unique_id=1805449626]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Syringe" type="Sprite2D" parent="SyringeMinigame" unique_id=2012736722]
+
+[node name="AttemptsLabel" type="Label" parent="SyringeMinigame" unique_id=1811001507]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ResultLabel" type="Label" parent="SyringeMinigame" unique_id=880184482]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

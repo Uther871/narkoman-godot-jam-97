@@ -27,11 +27,7 @@ func _physics_process(delta):
 
 	if direction != Vector2.ZERO:
 		animated_sprite.play("hotbya")
-		if direction.x != 0:                      # тільки якщо є горизонтальна складова
-			if direction.x > 0:
-				animated_sprite.flip_h = false      # дивиться вправо
-			else:
-				animated_sprite.flip_h = true       # дзеркально — дивиться вліво
+			
 	else: 
 		animated_sprite.play("Spokiy")
 	
@@ -40,10 +36,8 @@ func _physics_process(delta):
 	
 func _process(delta):
 	var mouse_pos = get_global_mouse_position()
-	var direction_pos = mouse_pos - global_position  # вектор від гравця до курсора
+	var direction_pos = mouse_pos - global_position  
 	var shift = direction_pos.limit_length(maximum_displacement)
 	camera.offset = camera.offset.lerp(shift, 0.1)
-	if mouse_pos.x > global_position.x:
-		animated_sprite.flip_h = false     # миша справа — дивиться вправо
-	else:
-		animated_sprite.flip_h = true      # миша зліва — дивиться вліво
+	animated_sprite.look_at(mouse_pos)
+	animated_sprite.rotation += PI / 2

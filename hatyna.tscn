@@ -5,6 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://b05ecodpnpjjr" path="res://sofa.tscn" id="3_8bh3y"]
 [ext_resource type="PackedScene" uid="uid://c2anfg06evdx7" path="res://huynia_23.tscn" id="4_rf8l8"]
 [ext_resource type="PackedScene" uid="uid://dxe1yry6lsfp1" path="res://node_2d.tscn" id="5_rf8l8"]
+[ext_resource type="Script" uid="uid://ck8yyf470f16y" path="res://crosshair.gd" id="6_smnb4"]
+[ext_resource type="Texture2D" uid="uid://ypenqieic142" path="res://Vасети/f2299f81d9a3dbdb.png" id="7_eno6v"]
+[ext_resource type="Shader" uid="uid://m07a6vkleeo5" path="res://hatyna.gdshader" id="8_eno6v"]
+[ext_resource type="Script" uid="uid://qmi6ygrx5u76" path="res://color_rect.gd" id="9_h2j0k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qd1lp"]
 size = Vector2(19, 894)
@@ -33,15 +37,51 @@ size = Vector2(349, 17)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vsy63"]
 size = Vector2(469, 18)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2j0k"]
+atlas = ExtResource("7_eno6v")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyuvj"]
+atlas = ExtResource("7_eno6v")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nan7v"]
+atlas = ExtResource("7_eno6v")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sa2ql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2j0k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyuvj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nan7v")
+}],
+"loop": 1,
+"name": &"pulsacia",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_smnb4"]
+shader = ExtResource("8_eno6v")
+shader_parameter/chaos = 1.0
+shader_parameter/radius = 0.5
+shader_parameter/attenuation = 2.0
+
 [node name="Node2D" type="Node2D" unique_id=565385008]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1475514383]
 texture = ExtResource("1_y6ilu")
 
 [node name="Fridge" parent="." unique_id=665776518 instance=ExtResource("2_8bh3y")]
+position = Vector2(-736, -418)
 
 [node name="Sofa" parent="." unique_id=54975893 instance=ExtResource("3_8bh3y")]
-position = Vector2(-238.99998, 110.99999)
+position = Vector2(-673, 254)
 scale = Vector2(0.7, 0.7)
 
 [node name="huynia23" parent="." unique_id=577995440 instance=ExtResource("4_rf8l8")]
@@ -84,6 +124,35 @@ shape = SubResource("RectangleShape2D_ov4ip")
 position = Vector2(566.5, 137)
 shape = SubResource("RectangleShape2D_vsy63")
 
+[node name="Crosshair" type="Node2D" parent="." unique_id=1316558914]
+z_index = 100
+scale = Vector2(4, 4)
+script = ExtResource("6_smnb4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Crosshair" unique_id=525033569]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_sa2ql")
+animation = &"pulsacia"
+
 [node name="Node2D" parent="." unique_id=1753449657 instance=ExtResource("5_rf8l8")]
-position = Vector2(294, 147)
 scale = Vector2(0.5, 0.5)
+
+[node name="CharacterBody2D" parent="Node2D" index="0" unique_id=927361161 groups=["player"]]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=561796199]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=907347027]
+material = SubResource("ShaderMaterial_smnb4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1238.0
+offset_top = -991.0
+offset_right = 110.0
+offset_bottom = 361.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0.5019608)
+script = ExtResource("9_h2j0k")
+
+[editable path="Node2D"]
