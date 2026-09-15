@@ -10,6 +10,7 @@
 [ext_resource type="Shader" uid="uid://m07a6vkleeo5" path="res://hatyna.gdshader" id="8_eno6v"]
 [ext_resource type="Script" uid="uid://qmi6ygrx5u76" path="res://color_rect.gd" id="9_h2j0k"]
 [ext_resource type="PackedScene" uid="uid://dh5da2vwos2ug" path="res://injection_spot.tscn" id="10_tyuvj"]
+[ext_resource type="Texture2D" uid="uid://baxu88upc6ef6" path="res://Vасети/toilet.png" id="11_nan7v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qd1lp"]
 size = Vector2(19, 894)
@@ -72,6 +73,9 @@ shader = ExtResource("8_eno6v")
 shader_parameter/chaos = 1.0
 shader_parameter/radius = 0.5
 shader_parameter/attenuation = 2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtsop"]
+size = Vector2(11, 12)
 
 [node name="Node2D" type="Node2D" unique_id=565385008]
 
@@ -160,6 +164,18 @@ script = ExtResource("9_h2j0k")
 
 [node name="CollisionShape2D" parent="InjectionSpot" index="1" unique_id=50986278]
 position = Vector2(-598, 248)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1630500633]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1697775821]
+position = Vector2(72, 45)
+texture = ExtResource("11_nan7v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Sprite2D" unique_id=611041048]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_qtsop")
+
+[node name="VoidBackground" type="Sprite2D" parent="." unique_id=1386581386]
 
 [editable path="Node2D"]
 [editable path="InjectionSpot"]

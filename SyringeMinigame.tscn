@@ -67,6 +67,12 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ov4ip"]
+size = Vector2(1.408833, 1.2855761)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2ql"]
+size = Vector2(140.75, 3.5)
+
 [node name="Node2D" type="Node2D" unique_id=1988240612]
 
 [node name="SyringeMinigame" type="Control" parent="." unique_id=937659628]
@@ -77,32 +83,44 @@ offset_bottom = 40.0
 script = ExtResource("1_44xpa")
 
 [node name="Background" type="ColorRect" parent="SyringeMinigame" unique_id=10293700]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Track" type="Line2D" parent="SyringeMinigame" unique_id=962072659]
 
-[node name="TargetZone" type="ColorRect" parent="SyringeMinigame" unique_id=1805449626]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Syringe" type="AnimatedSprite2D" parent="SyringeMinigame" unique_id=1683826811]
 z_index = 10
 texture_filter = 1
+position = Vector2(30, 25)
+scale = Vector2(2.3709676, 2.3064516)
 sprite_frames = SubResource("SpriteFrames_sa2ql")
 animation = &"inject"
 
+[node name="SyringeHitbox" type="Area2D" parent="SyringeMinigame/Syringe" unique_id=1197808468]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SyringeMinigame/Syringe/SyringeHitbox" unique_id=640954935]
+position = Vector2(-11.95279, -12.039615)
+rotation = -0.6981317
+scale = Vector2(0.9999996, 0.9999996)
+shape = SubResource("RectangleShape2D_ov4ip")
+
 [node name="AttemptsLabel" type="Label" parent="SyringeMinigame" unique_id=1811001507]
+visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 34.0
+offset_top = 2.0
+offset_right = 74.0
+offset_bottom = 25.0
 
 [node name="ResultLabel" type="Label" parent="SyringeMinigame" unique_id=880184482]
+visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 4.0
+offset_top = -3.0
+offset_right = 44.0
+offset_bottom = 20.0
 
 [node name="hand" type="Sprite2D" parent="SyringeMinigame" unique_id=999348786]
 texture_filter = 1
@@ -112,19 +130,35 @@ texture = ExtResource("3_6bdim")
 visible = false
 z_index = 11
 layout_mode = 0
-offset_left = -157.0
-offset_top = -87.0
-offset_right = 163.0
-offset_bottom = 93.0
+offset_left = -161.0
+offset_top = -97.0
+offset_right = 159.0
+offset_bottom = 83.0
 texture = ExtResource("4_6bdim")
 
 [node name="HoldProgressBar" type="ProgressBar" parent="SyringeMinigame" unique_id=1449174910]
-layout_mode = 0
-offset_right = 4.0
-offset_bottom = 27.0
-min_value = 1.5
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.045
+anchor_top = 0.062000003
+anchor_right = 0.045
+anchor_bottom = 0.062000003
+offset_left = 10.2
+offset_top = 21.52
+offset_right = 107.2
+offset_bottom = 48.52
+max_value = 1.5
 value = 1.5
+show_percentage = false
+
+[node name="TargetZone" type="Area2D" parent="SyringeMinigame" unique_id=1590762950]
+position = Vector2(-5, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SyringeMinigame/TargetZone" unique_id=509526937]
+position = Vector2(-15, -4)
+shape = SubResource("RectangleShape2D_sa2ql")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=694401367]
-position = Vector2(-15, -1)
+position = Vector2(-10, -1)
 zoom = Vector2(4, 4)
