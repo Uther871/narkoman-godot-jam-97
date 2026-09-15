@@ -50,7 +50,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ov4ip"]
-size = Vector2(14.110001, 6.5600004)
+size = Vector2(14.110001, 13.600001)
 
 [node name="Node2D" type="Node2D" unique_id=1753449657]
 
@@ -64,7 +64,7 @@ sprite_frames = SubResource("SpriteFrames_sa2ql")
 animation = &"hotbya"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1032620535]
-position = Vector2(-0.44999617, 0.70000064)
+position = Vector2(0, -2.3841858e-07)
 scale = Vector2(9.999999, 9.999999)
 shape = SubResource("RectangleShape2D_ov4ip")
 

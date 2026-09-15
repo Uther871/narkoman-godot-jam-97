@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cjfecx1gg1hiu"]
 
-[ext_resource type="Texture2D" uid="uid://bblyfrn8vyr61" path="res://Vасети/6ceadc604b366508.png" id="1_y6ilu"]
+[ext_resource type="Texture2D" uid="uid://c1md5wddfjp15" path="res://Vасети/6ceadc604b366508-export(1).png" id="1_nan7v"]
+[ext_resource type="Script" uid="uid://cljwtvs5rocyp" path="res://void_background.gd" id="1_tk5x7"]
 [ext_resource type="PackedScene" uid="uid://d32docolsbwps" path="res://fridge1.tscn" id="2_8bh3y"]
 [ext_resource type="PackedScene" uid="uid://b05ecodpnpjjr" path="res://sofa.tscn" id="3_8bh3y"]
 [ext_resource type="PackedScene" uid="uid://c2anfg06evdx7" path="res://huynia_23.tscn" id="4_rf8l8"]
@@ -11,6 +12,25 @@
 [ext_resource type="Script" uid="uid://qmi6ygrx5u76" path="res://color_rect.gd" id="9_h2j0k"]
 [ext_resource type="PackedScene" uid="uid://dh5da2vwos2ug" path="res://injection_spot.tscn" id="10_tyuvj"]
 [ext_resource type="Texture2D" uid="uid://baxu88upc6ef6" path="res://Vасети/toilet.png" id="11_nan7v"]
+
+[sub_resource type="Gradient" id="Gradient_tk5x7"]
+colors = PackedColorArray(0.9999997, 0.12155213, 0.3446414, 1, 0.9999998, 0.78035957, 0.996226, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nan7v"]
+gradient = SubResource("Gradient_tk5x7")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Animation" id="Animation_4fmo7"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oajg6"]
+_data = {
+&"new_animation": SubResource("Animation_4fmo7")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qd1lp"]
 size = Vector2(19, 894)
@@ -71,16 +91,23 @@ animations = [{
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_smnb4"]
 shader = ExtResource("8_eno6v")
 shader_parameter/chaos = 1.0
-shader_parameter/radius = 0.5
-shader_parameter/attenuation = 2.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtsop"]
 size = Vector2(11, 12)
 
 [node name="Node2D" type="Node2D" unique_id=565385008]
 
+[node name="VoidBackground" type="Sprite2D" parent="." unique_id=1386581386]
+texture_filter = 1
+scale = Vector2(10, 10)
+texture = SubResource("GradientTexture2D_nan7v")
+script = ExtResource("1_tk5x7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VoidBackground" unique_id=1390264599]
+libraries/ = SubResource("AnimationLibrary_oajg6")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1475514383]
-texture = ExtResource("1_y6ilu")
+texture = ExtResource("1_nan7v")
 
 [node name="Fridge" parent="." unique_id=665776518 instance=ExtResource("2_8bh3y")]
 position = Vector2(-736, -418)
@@ -163,7 +190,7 @@ script = ExtResource("9_h2j0k")
 [node name="InjectionSpot" parent="." unique_id=545040796 instance=ExtResource("10_tyuvj")]
 
 [node name="CollisionShape2D" parent="InjectionSpot" index="1" unique_id=50986278]
-position = Vector2(-598, 248)
+position = Vector2(-737, -295)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1630500633]
 
@@ -174,8 +201,6 @@ texture = ExtResource("11_nan7v")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Sprite2D" unique_id=611041048]
 position = Vector2(1.5, 0)
 shape = SubResource("RectangleShape2D_qtsop")
-
-[node name="VoidBackground" type="Sprite2D" parent="." unique_id=1386581386]
 
 [editable path="Node2D"]
 [editable path="InjectionSpot"]
